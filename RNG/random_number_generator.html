@@ -26,19 +26,19 @@
 			<button onclick="res()">NEW RESULT</button>
 			<div id="setups">
 					<div id="rarity">
-						<div class="rarity" id="1"><input type="radio" name="rarity" checked="true" value="common"><label class="1">Common</label><p></p></div>
-						<div class="rarity" id="2"><input type="radio" name="rarity" value="rare"><label class="1">Rare</label><p></p></div>
-						<div class="rarity" id="3"><input type="radio" name="rarity" value="epic"><label class="1">Epic</label><p></p></div>
-						<div class="rarity" id="4"><input type="radio" name="rarity" value="legendary"><label class="1">Legendary</label><p></p></div>
+						<div class="rarity" ><input type="radio" name="rarity" id="1"  value="common" checked><label class="1">Common</label><p></p></div>
+						<div class="rarity" ><input type="radio" name="rarity" id="2" value="rare"><label class="1">Rare</label><p></p></div>
+						<div class="rarity" ><input type="radio" name="rarity" id="3" value="epic"><label class="1">Epic</label><p></p></div>
+						<div class="rarity" ><input type="radio" name="rarity" id="4" value="legendary"><label class="1">Legendary</label><p></p></div>
 					</div>
 					<div id="type">
-						<div class="type" id="5"><input type="radio" name="type" checked="true" value="weapon"><label class="1">Weapon</label><p></p></div>
-						<div class="type" id="6"><input type="radio" name="type" value="armor"><label class="1">Armor</label><p></p></div>
-						<div class="type" id="7"><input type="radio" name="type" value="utility"><label class="1">Utility</label><p></p></div>
-						<div class="type" id="8"><input type="radio" name="type" value="trash"><label class="1">Trash</label><p></p></div>
+						<div class="type" ><input type="radio" name="type" id="5"   value="weapon" checked><label class="1">Weapon</label><p></p></div>
+						<div class="type" ><input type="radio" name="type" id="6" value="armor"><label class="1">Armor</label><p></p></div>
+						<div class="type" ><input type="radio" name="type" id="7" value="utility"><label class="1">Utility</label><p></p></div>
+						<div class="type" ><input type="radio" name="type" id="8" value="trash"><label class="1">Trash</label><p></p></div>
 					</div>
 					<div id="general">
-						<div class="quant"><br><label class="1">Quantity</label><br><input type="number"></div>
+						<div class="quant"><!-- <br><label class="1">Quantity</label><br><input type="number"> --></div>
 					</div>
 			</div>
 		</div>
@@ -49,7 +49,10 @@
 </body>
 <script>
 
-
+let rarity;
+function Rarity(rarityName) {
+	this.rarityName = rarityName;	
+}
 let item;
 function Item(itemName) {
 	this.itemName = itemName;	
@@ -61,38 +64,46 @@ function Enviroment(enviromentName) {
 let getEnviroment = document.querySelector(".enviroment");
 
 
-		
 
 
-	
-		
-		
-
-	// Enviroment mean type of item
+	// Enviroment mean type of an item
 		function res(){
-		let enviroment00 = new Enviroment("Weapon");
-		let enviroment01 = new Enviroment("Armor");
-		let enviroment02 = new Enviroment("Utility");
-		let enviroment03 = new Enviroment("Trash");
-		let chooseRandomEnviroment = Math.floor(Math.random() * Math.floor(4));
-	switch (chooseRandomEnviroment) {
-			case 0:
-			enviroment = enviroment00;
-			break;
-			case 1:
-			enviroment = enviroment01;
-			break;
-			case 2:
-			enviroment = enviroment02;
-			break;
-			case 3:
-			enviroment = enviroment03;
-			break;
-
+						let chooseRandomEnviroment;		
+if (document.getElementById(5).checked == 1){
+	 chooseRandomEnviroment ="Weapon";
 	}
+else if (document.getElementById(6).checked == 1){
+	 chooseRandomEnviroment = "Armor";
+	}
+else if (document.getElementById(7).checked == 1){
+	 chooseRandomEnviroment = "Utility";
+	}			
+else {
+	 chooseRandomEnviroment = "Trash";
+};	
+	// 	let enviroment00 = new Enviroment("Weapon");
+	// 	let enviroment01 = new Enviroment("Armor");
+	// 	let enviroment02 = new Enviroment("Utility");
+	// 	let enviroment03 = new Enviroment("Trash");
+	// 	// let chooseRandomEnviroment = Math.floor(Math.random() * Math.floor(4));
+	// switch (chooseRandomEnviroment) {
+	// 		case 0:
+	// 		enviroment = enviroment00;
+	// 		break;
+	// 		case 1:
+	// 		enviroment = enviroment01;
+	// 		break;
+	// 		case 2:
+	// 		enviroment = enviroment02;
+	// 		break;
+	// 		case 3:
+	// 		enviroment = enviroment03;
+	// 		break;
+
+	// }
 
 let getItem = document.querySelector(".item");
-		if (chooseRandomEnviroment == 0) {
+		if (chooseRandomEnviroment == "Weapon") {
 		let item00 = new Item("Bardiche");
 		let item01 = new Item("Bill");
 		let item02 = new Item("Halberd");
@@ -127,7 +138,7 @@ let getItem = document.querySelector(".item");
 				item = item06;
 				break; }
 				}
-				else if (chooseRandomEnviroment == 1) {
+				else if (chooseRandomEnviroment == "Armor") {
 		let item00 = new Item("Plate Helmet");
 		let item01 = new Item("Leather Gauntlets");
 		let item02 = new Item("Plate Shoulderpads");
@@ -162,7 +173,7 @@ let getItem = document.querySelector(".item");
 				item = item06;
 				break; }
 				}
-				else if (chooseRandomEnviroment == 2) {
+				else if (chooseRandomEnviroment == "Utility") {
 		let item00 = new Item("10m Rope");
 		let item01 = new Item("Bandages");
 		let item02 = new Item("Backpack");
@@ -236,22 +247,122 @@ let getItem = document.querySelector(".item");
 			}
 
 		}
-// let read = (document.getElementById(5).value == "weapon");		
-// if (document.getElementById(5).value == "weapon"){
-// 	let read = 5;
-// 	}			
-// else {
-// 	let read = 10;
-// };
+
+				let chooseRandomRarity;		
+if (document.getElementById(1).checked == 1){
+	 chooseRandomRarity ="Common";
+	}
+else if (document.getElementById(2).checked == 1){
+	 chooseRandomRarity = "Uncomon";
+	}
+else if (document.getElementById(3).checked == 1){
+	 chooseRandomRarity = "Epic";
+	}			
+else {
+	 chooseRandomRarity = "Legendary";
+};	
+
+let getRarity = document.querySelector(".rarity");
+		if (chooseRandomRarity == "Common") {
+		let rarity00 = new Rarity("Temerian");
+		let rarity01 = new Rarity("Redanic");
+		let rarity02 = new Rarity("Rivian");
+		let rarity03 = new Rarity("Kedvenish");
+		let rarity04 = new Rarity("Lyrian");
 		
+		let chooseRandomRarity = Math.floor(Math.random() * Math.floor(5));
+			switch (chooseRandomRarity) {
+				case 0:
+				rarity = rarity00;
+				break;
+				case 1:
+				rarity = rarity01;
+				break;
+				case 2:
+				rarity = rarity02;
+				break;
+				case 3:
+				rarity = rarity03;
+				break;
+				case 4:
+				rarity = rarity04;
+				break;
+				default:
+				rarity = rarity00;
+				break; }
+				}
+		else if (chooseRandomRarity == "Uncomon") {
+		let rarity00 = new Rarity("Nilfgardian");
+		let rarity01 = new Rarity("Cintrian");
+		let rarity02 = new Rarity("Kovirian");
+		
+		
+		let chooseRandomRarity = Math.floor(Math.random() * Math.floor(3));
+			switch (chooseRandomRarity) {
+				case 0:
+				rarity = rarity00;
+				break;
+				case 1:
+				rarity = rarity01;
+				break;
+				case 2:
+				rarity = rarity02;
+				break;
+			
+				default:
+				rarity = rarity00;
+				break; }
+				}
+			else if (chooseRandomRarity == "Epic") {
+		let rarity00 = new Rarity("Zerikanian");
+		let rarity01 = new Rarity("Ofirian");
+		let rarity02 = new Rarity("Skeligish");
+		
+		
+		let chooseRandomRarity = Math.floor(Math.random() * Math.floor(3));
+			switch (chooseRandomRarity) {
+				case 0:
+				rarity = rarity00;
+				break;
+				case 1:
+				rarity = rarity01;
+				break;
+				case 2:
+				rarity = rarity02;
+				break;
+			
+				default:
+				rarity = rarity00;
+				break; }
+				}
+else  {
+		let rarity00 = new Rarity("Mahakamish");
+		let rarity01 = new Rarity("Dol Blathanish");
+		
+		let chooseRandomRarity = Math.floor(Math.random() * Math.floor(2));
+			switch (chooseRandomRarity) {
+				case 0:
+				rarity = rarity00;
+				break;
+				case 1:
+				rarity = rarity01;
+				break;
+				default:
+				rarity = rarity00;
+				break; }
+				}
 
 
-		console.log(item, enviroment);
-		console.log (chooseRandomEnviroment);
+		console.log(item, rarity);
 		
-			document.getElementById("viev").innerHTML = item.itemName  +" - "+ enviroment.enviromentName ;
+			
+			document.getElementById("viev").innerHTML = item.itemName  +" ";
+			document.getElementById("img").innerHTML = rarity.rarityName  +" ";
 		}
 
+		
+
+				
 
 </script>
 </html>
