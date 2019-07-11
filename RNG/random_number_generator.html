@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="styling.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Notable&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+
+  <title>RNG</title>
+</head>
+<body>
+	<header>
+	
+		
+	</header>
+	
+	<div class="main">
+		<div class="aside-left"></div>
+		<div class="viev-container">
+			<div id="shows">
+				<div id="viev"></div>
+				<div id="img"></div>
+			</div>
+			<button onclick="res()">NEW RESULT</button>
+			<div id="setups">
+					<div id="rarity">
+						<div class="rarity" id="1"><input type="radio" name="rarity" checked="true" value="common"><label class="1">Common</label><p></p></div>
+						<div class="rarity" id="2"><input type="radio" name="rarity" value="rare"><label class="1">Rare</label><p></p></div>
+						<div class="rarity" id="3"><input type="radio" name="rarity" value="epic"><label class="1">Epic</label><p></p></div>
+						<div class="rarity" id="4"><input type="radio" name="rarity" value="legendary"><label class="1">Legendary</label><p></p></div>
+					</div>
+					<div id="type">
+						<div class="type" id="5"><input type="radio" name="type" checked="true" value="weapon"><label class="1">Weapon</label><p></p></div>
+						<div class="type" id="6"><input type="radio" name="type" value="armor"><label class="1">Armor</label><p></p></div>
+						<div class="type" id="7"><input type="radio" name="type" value="utility"><label class="1">Utility</label><p></p></div>
+						<div class="type" id="8"><input type="radio" name="type" value="trash"><label class="1">Trash</label><p></p></div>
+					</div>
+					<div id="general">
+						<div class="quant"><br><label class="1">Quantity</label><br><input type="number"></div>
+					</div>
+			</div>
+		</div>
+		<div class="aside-right"></div>
+	</div>
+	
+	<footer></footer>
+</body>
+<script>
+
+
+let item;
+function Item(itemName) {
+	this.itemName = itemName;	
+}
+let enviroment;
+function Enviroment(enviromentName) {
+	this.enviromentName = enviromentName;
+}
+let getEnviroment = document.querySelector(".enviroment");
+
+
+		
+
+
+	
+		
+		
+
+	// Enviroment mean type of item
+		function res(){
+		let enviroment00 = new Enviroment("Weapon");
+		let enviroment01 = new Enviroment("Armor");
+		let enviroment02 = new Enviroment("Utility");
+		let enviroment03 = new Enviroment("Trash");
+		let chooseRandomEnviroment = Math.floor(Math.random() * Math.floor(4));
+	switch (chooseRandomEnviroment) {
+			case 0:
+			enviroment = enviroment00;
+			break;
+			case 1:
+			enviroment = enviroment01;
+			break;
+			case 2:
+			enviroment = enviroment02;
+			break;
+			case 3:
+			enviroment = enviroment03;
+			break;
+
+	}
+
+let getItem = document.querySelector(".item");
+		if (chooseRandomEnviroment == 0) {
+		let item00 = new Item("Bardiche");
+		let item01 = new Item("Bill");
+		let item02 = new Item("Halberd");
+		let item03 = new Item("Pike");
+		let item04 = new Item("Bozdogan");
+		let item05 = new Item("Bulawa");
+		let item06 = new Item("War Scythe");
+		let chooseRandomItem = Math.floor(Math.random() * Math.floor(7));
+			switch (chooseRandomItem) {
+				case 0:
+				item = item00;
+				break;
+				case 1:
+				item = item01;
+				break;
+				case 2:
+				item = item02;
+				break;
+				case 3:
+				item = item03;
+				break;
+				case 4:
+				item = item04;
+				break;
+				case 5:
+				item = item05;
+				break;
+				case 6:
+				item = item06;
+				break;
+				default:
+				item = item06;
+				break; }
+				}
+				else if (chooseRandomEnviroment == 1) {
+		let item00 = new Item("Plate Helmet");
+		let item01 = new Item("Leather Gauntlets");
+		let item02 = new Item("Plate Shoulderpads");
+		let item03 = new Item("Long Chainmail");
+		let item04 = new Item("Scale Brestplate");
+		let item05 = new Item("Brigandine");
+		let item06 = new Item("Full Lamellar");
+		let chooseRandomItem = Math.floor(Math.random() * Math.floor(7));
+			switch (chooseRandomItem) {
+				case 0:
+				item = item00;
+				break;
+				case 1:
+				item = item01;
+				break;
+				case 2:
+				item = item02;
+				break;
+				case 3:
+				item = item03;
+				break;
+				case 4:
+				item = item04;
+				break;
+				case 5:
+				item = item05;
+				break;
+				case 6:
+				item = item06;
+				break;
+				default:
+				item = item06;
+				break; }
+				}
+				else if (chooseRandomEnviroment == 2) {
+		let item00 = new Item("10m Rope");
+		let item01 = new Item("Bandages");
+		let item02 = new Item("Backpack");
+		let item03 = new Item("Pickaxe");
+		let item04 = new Item("Torch");
+		let item05 = new Item("Hunting Knive");
+		let item06 = new Item("Net");
+		let chooseRandomItem = Math.floor(Math.random() * Math.floor(7));
+			switch (chooseRandomItem) {
+				case 0:
+				item = item00;
+				break;
+				case 1:
+				item = item01;
+				break;
+				case 2:
+				item = item02;
+				break;
+				case 3:
+				item = item03;
+				break;
+				case 4:
+				item = item04;
+				break;
+				case 5:
+				item = item05;
+				break;
+				case 6:
+				item = item06;
+				break;
+				default:
+				item = item06;
+				break; }
+				}
+			else {
+
+		let item00 = new Item("Wooden Table");
+		let item01 = new Item("Old Bones");
+		let item02 = new Item("Spoon");
+		let item03 = new Item("Vase");
+		let item04 = new Item("Mug");
+		let item05 = new Item("Burned Book");
+		let item06 = new Item("Corroded Metal Box");
+		let chooseRandomItem = Math.floor(Math.random() * Math.floor(7));
+			switch (chooseRandomItem) {
+				case 0:
+				item = item00;
+				break;
+				case 1:
+				item = item01;
+				break;
+				case 2:
+				item = item02;
+				break;
+				case 3:
+				item = item03;
+				break;
+				case 4:
+				item = item04;
+				break;
+				case 5:
+				item = item05;
+				break;
+				case 6:
+				item = item06;
+				break;
+				default:
+				item = item06;
+				break;
+
+			}
+
+		}
+// let read = (document.getElementById(5).value == "weapon");		
+// if (document.getElementById(5).value == "weapon"){
+// 	let read = 5;
+// 	}			
+// else {
+// 	let read = 10;
+// };
+		
+
+
+		console.log(item, enviroment);
+		console.log (chooseRandomEnviroment);
+		
+			document.getElementById("viev").innerHTML = item.itemName  +" - "+ enviroment.enviromentName ;
+		}
+
+
+</script>
+</html>
