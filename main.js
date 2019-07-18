@@ -35,6 +35,7 @@ var color;
 // Enviroment is a category of an item
 function res() {
 	let chooseRandomEnviroment;
+	
 	if (document.getElementById(5).checked == 1) {
 		 chooseRandomEnviroment ="Weapon";
 	}
@@ -47,32 +48,39 @@ function res() {
 	else {
 		 chooseRandomEnviroment = "Trash";
 	}
-
+	let imglibrary = chooseRandomEnviroment;
 	//wersja z arrayem
 	let getItem = document.querySelector(".item");
 	if (chooseRandomEnviroment == "Weapon") {
 		let item = [
-			"Heavy Arquebus",
+			"Arquebus",
 			"Musket",
 			"Pistol",
-			"Arkan",
-			"Long Bow",
+			"Whip",
+			"Longbow",
 			"Short Bow",
 			"Crossbow",
 			"Slinger",
 			"Arbalest",
-			"Gastrapeths",
+			"Gastraphetes",
 			"Chu-ko-nu",
-			"Long Sword",
+			"Javelin",
+			"Longsword",
 			"Bastard Sword",
 			"Short Sword",
-			"Knife",
+			"Gladius",
+			"Dagger",
+			"Falcata",
 			"Two-Handed Sword",
 			"Rapier",
+			"Khopesh",
+			"Falx",
+			"Shotel",
 			"Battle Axe",
 			"Warhammer",
 			"Bardiche",
 			"Bill",
+			"Naginata",
 			"Halberd",
 			"Pike",
 			"Bozdogan",
@@ -88,24 +96,22 @@ function res() {
 	else if (chooseRandomEnviroment == "Armor") {
 		let item = [
 			'Mask',
-			'Mengou (Mask)',
 			'Enclosed Helmet',
 			'Great Helmet',
 			'Nasal Helmet',
-			'Bassinet Helmet',
+			'Bascinet Helmet',
 			'Sallet Helmet + Bevor',
 			'Barbute Helmet',
+			'Morion Helmet',
 			'Armet Helmet',
+			'Stechhelm',
 			'Bowl Helmet',
-			'Burgonet Helmet',
-			'Kusari Shikoro (Helmet)',
-			'Kabuto (Helmet)',
-			'Cuirass (Brest Plate)',
-			'Plackart (Brest Plate)',
-			'Faulds (Brest Plate)',
+			'Kusari Shikoro',
+			'Kabuto',
+			'Cuirass',
+			'Faulds',
 			'Gauntlets',
-			'Kusari Han Kote (Gauntlets)',
-			'Han Kote',
+			'Kusari Han Kote',
 			'Full Armor',
 			'Sabatons'
 		];
@@ -114,8 +120,8 @@ function res() {
 			'Scale',
 			'Plate',
 			'Chain',
-			'Gromnir',
-			'Mithril',
+			'Gromril',
+			'Ithilmar',
 			'Fur',
 			'Paper'
 		];
@@ -132,7 +138,7 @@ function res() {
 			"Backpack",
 			"Pickaxe",
 			"Torch",
-			"Hunting Knive",
+			"Hunting Knife",
 			"Net"
 		];
 		RandomResult = () => ( item[Math.floor(Math.random() * item.length)]);
@@ -147,7 +153,7 @@ function res() {
 			"Mug",
 			"Candle",
 			"Basket",
-			"Box"
+			"Chest"
 		];
 		RandomResult = () => ( item[Math.floor(Math.random() * item.length)]);
 		console.log(RandomResult())
@@ -191,9 +197,9 @@ function res() {
 		RarityResult = () => ( rarity[Math.floor(Math.random() * rarity.length)]);
 		console.log(RarityResult())
 		
-		color = document.getElementById("viev");
+		color = document.getElementById("shows__viev");
 		color.style.color = "#7bff00";
-		color = document.getElementById("img");
+		color = document.getElementById("shows__nation");
 		color.style.color = "#7bff00";
 	}
 	else if (chooseRandomRarity == "Rare") {
@@ -216,9 +222,9 @@ function res() {
 		RarityResult = () => ( rarity[Math.floor(Math.random() * rarity.length)]);
 		console.log(RarityResult())
 		
-		color = document.getElementById("viev");
+		color = document.getElementById("shows__viev");
 		color.style.color = "#03afff";
-		color = document.getElementById("img");
+		color = document.getElementById("shows__nation");
 		color.style.color = "#03afff";
 	}
 	else if (chooseRandomRarity == "Epic") {
@@ -239,9 +245,9 @@ function res() {
 		RarityResult = () => ( rarity[Math.floor(Math.random() * rarity.length)]);
 		console.log(RarityResult())
 
-		color = document.getElementById("viev");
+		color = document.getElementById("shows__viev");
 		color.style.color = "#ff0073";
-		color = document.getElementById("img");
+		color = document.getElementById("shows__nation");
 		color.style.color = "#ff0073";
 	}
 	else {
@@ -261,13 +267,25 @@ function res() {
 		RarityResult = () => ( rarity[Math.floor(Math.random() * rarity.length)]);
 		console.log(RarityResult())
 
-		color = document.getElementById("viev");
+		color = document.getElementById("shows__viev");
 		color.style.color = "#ff9900";
-		color = document.getElementById("img");
+		color = document.getElementById("shows__nation");
 		color.style.color = "#ff9900";
 	}
-	console.log( RarityResult(), RandomResult())
+	
+	let resultofrandomresult = RandomResult();
+	let resultofrandomarmor = ArmorResult();
+	let resultofrandommaterial = MaterialsResult()
+	console.log( resultofrandomresult, imglibrary)
 
-	document.getElementById("viev").innerHTML = RandomResult() ;
-	document.getElementById("img").innerHTML = "Made in " + RarityResult()  ;
+	if (chooseRandomEnviroment == "Armor"){
+	document.getElementById("setups__general").innerHTML = '<img src="img/' + imglibrary + "/" + resultofrandomarmor + '.jpg" alt=" ' + resultofrandomarmor + ' " class="img-avatar">';
+	document.getElementById("shows__viev").innerHTML = '<p>' + resultofrandommaterial + " " + resultofrandomarmor + '</p>';
+	document.getElementById("shows__nation").innerHTML = "<p> Made in " + RarityResult() + '</p>';
+	}
+	else{
+	document.getElementById("setups__general").innerHTML = '<img src="img/' + imglibrary + "/" + resultofrandomresult + '.jpg" alt=" ' + resultofrandomresult + ' " class="img-avatar">';
+	document.getElementById("shows__viev").innerHTML = '<p>' + resultofrandomresult + '</p>';
+	document.getElementById("shows__nation").innerHTML = "<p> Made in " + RarityResult() + '</p>';
+	}
 }
