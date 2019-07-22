@@ -9,16 +9,27 @@ body {
   font-family: 'Special Elite', cursive;
   text-shadow: #222 3px 3px 2px; }
   body header {
-    height: 1rem;
+    height: 10rem;
     width: 100%;
     background-color: #333;
     display: flex;
-    justify-content: space-evenly; }
+    justify-content: space-evenly;
+    padding: 2rem 0 3rem 0;
+    flex-direction: column;
+    align-items: center; }
+    body header p {
+      text-shadow: #222 2px 3px 3px;
+      font-size: 40px;
+      color: #fff; }
   body footer {
     height: 5rem;
     width: 100%;
     background-color: #333;
-    display: flex; }
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; }
+    body footer a {
+      color: #fff; }
 
 button {
   background: linear-gradient(0deg, #503e31 0%, #968e87 12%, #f7eadd 94%, #5d554c 100%);
@@ -117,7 +128,8 @@ background: linear-gradient(0deg, rgba(23,38,22,1) 0%, rgba(183,191,207,1) 94%, 
         box-shadow: #111 4px 4px  7px;
         border: #222 solid 2px; }
       .main .main__viev-container #viev-container__setups #setups__rarity input, .main .main__viev-container #viev-container__setups #setups__type input {
-        transform: scaleX(5) scaleY(5); }
+        transform: scaleX(3.7) scaleY(3.7);
+        cursor: pointer; }
       .main .main__viev-container #viev-container__setups #setups__general {
         text-align: center;
         display: flex;
@@ -171,11 +183,6 @@ background: linear-gradient(0deg, rgba(23,38,22,1) 0%, rgba(183,191,207,1) 94%, 
           font-size: 40px; }
 
 @media screen and (min-width: 0px) and (max-width: 1024px) {
-  button {
-    position: absolute;
-    top: 83vh;
-    width: 87%; }
-
   #shows__nation {
     height: 20vh; }
     #shows__nation p {
@@ -186,18 +193,12 @@ background: linear-gradient(0deg, rgba(23,38,22,1) 0%, rgba(183,191,207,1) 94%, 
     #shows__viev p {
       font-size: 55px; }
 
-  #setups__rarity input, #setups__type input {
-    transform: scaleX(3) scaleY(3); }
-
   .rarity, .type {
     font-size: 30px;
     height: 8vh;
-    width: 75%; }
-
-  .quant input {
-    max-height: 10vh;
-    max-width: 10vh;
-    border-radius: 2vh;
-    font-size: 8vh; } }
+    width: 75%; } }
+@media screen and (min-width: 0px) and (max-width: 1024px) and (orientation: landscape) {
+  button {
+    font-size: 20px; } }
 
 /*# sourceMappingURL=styling.css.map */

@@ -117,13 +117,15 @@ function res() {
 		];
 		let materials =[
 			'Leather',
-			'Scale',
-			'Plate',
-			'Chain',
+			'Iron',
+			'Copper',
+			'Steel',
+			'Iron',
 			'Gromril',
 			'Ithilmar',
 			'Fur',
-			'Paper'
+			'Paper',
+			'Bone'
 		];
 		MaterialsResult = () => (materials[Math.floor(Math.random() * materials.length)]);
 	 	ArmorResult = () => ( item[Math.floor(Math.random() * item.length)]);
